@@ -1,27 +1,20 @@
-#include <iostream>
+#include <stdio.h>
 
-int multiplo3(int n);
-int multiplo5(int m);
+int main (void)
+{
+  int i, res1, res2, suma=0, j;
+  scanf("%d",&j);
 
-int main(void){
+  for(i=1;i<j;i=i+1){
+    
+    res1=i%3;
+    res2=i%5;
 
-  int sum1 = 0, sum2 = 0;
-  for(int i = 3;i < 1000;++i){
-    sum1 += multiplo3(i);
+    if(res1==0 || res2==0){
+    printf("%d Multiplo de 3 o 5 \n",i);
+    suma=suma+i;
+    }
   }
-  for(int i = 3;i < 1000;++i){
-    sum2 += multiplo5(i);
-  }
-
-  std::cout << sum1+sum2 << std::endl;
-  
+  printf("Suma = %d \n",suma);
   return 0;
-}
-
-int multiplo3(int n){
-  if(n%3 == 0) return n;
-}
-
-int multiplo5(int m){
-  if(m%5 == 0) return m; 
 }
