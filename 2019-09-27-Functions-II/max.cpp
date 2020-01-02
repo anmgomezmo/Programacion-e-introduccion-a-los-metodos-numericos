@@ -1,7 +1,7 @@
 #include <iostream>
 
 int max(int a, int b);
-double max(double a, double b);
+double max(double a, double b); // overloaded function
 
 int main(void){
 
