@@ -1,0 +1,67 @@
+* Some arrays/struct practice exercises [0/4]
+** TODO Estructura para modelar a un estudiante [2/2]
+   a) [X] Cree una estructura de datos que modele a un
+      estudiante. Debe contener los siguientes campos: nombre
+      (std::string), id (std::string), notas (array de double,
+      inicialmente un puntero) n_notas (int, numero de notas). La idea
+      es que ustedes especifican n_notas en main y usando memoria
+      dinamica (puede ser con new/delete o con std::vector) deben
+      redimensionar el arreglo para poder guardar las notas.
+   b) [X] La parte mas importante de este ejercicio es diseñar una
+      forma de "serializar" la estructura, es decir, de poder
+      escribirla-a/leerla-de un archivo. Recuerde que para escribirla
+      debe usar ofstream, y para leer un archivo deben usar ifstream.
+      Diseñe la forma más sencilla de imprimir la estrucutra (digamos
+      con dos estudiantes) a un archivo.
+     
+      Diseñe la forma de leer la estructura desde un archivo y pruebela.
+      Una sugerencia de lo que deberia tener el archivo es
+      ne
+      nn
+      e0name
+      e0id
+      e0n0 e0n1 e0n2 ... e0n(n-1)
+      e1name
+      e1id
+      e1n0 e1n1 e1n2 ... e1n(n-1)
+
+      donde ne es el numero de estudiantes, nn el numero de notas por
+      estudiante, y luego se van imprimiendo los datos de cada
+      estudiante
+      #+begin_src cpp :tangle estudiante.cpp
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Estudiante {
+  std::string name, id;
+  int n_notas = 0;
+  double * notas;
+};
+
+int main(void)
+{
+  Estudiante e1, e2;
+  e1.name = "Nombre estudiante 1";
+  e1.id  = "1234567890123456";
+  e1.notas[0] = 4.5;
+  
+  e1.name = "Nombre estudiante 2";
+  e1.id  = "98765432109876";
+}
+      #+end_src
+** TODO Practica de punteros y arreglos
+   Escriba un programa que tenga las siguientes declaraciones:
+   - Un puntero a un char
+   - Un arreglo de 10 enteros
+   - Un puntero a un arreglo de 10 enteros
+   - Puntero a un arreglo de char
+   - Puntero a una constante int
+   - Puntero constante a un int
+   Verifique este programa en python tutor cpp
+** TODO Maxima memoria 
+    En el computador que use, encuentre el tamaño máximo de arreglo
+    que puede pedir en el heap, usando new. Nota: Si exagera, puede trabar
+    su computador por un rato.  
+** TODO Los problemas al final de la presentacion
+    https://drive.google.com/open?id=1b5S6R8MDq0DQt0fRrBLKP8LLsHnWEY-S
